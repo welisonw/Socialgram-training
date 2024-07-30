@@ -3,7 +3,6 @@ import { Formik } from 'formik';
 import { toFormikValidationSchema } from 'zod-formik-adapter';
 import {
   ActivityIndicator,
-  SafeAreaView,
   Text,
   TextInput,
   TouchableOpacity,
@@ -15,7 +14,7 @@ import { ILoginAuth, LoginAuthSchema } from '@/src/schemas/AuthSchema';
 
 const initialValues = { email: '', password: '' };
 
-export const Login = () => {
+export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
 
   const { mutate, isPending } = useLogin();
@@ -29,7 +28,7 @@ export const Login = () => {
   };
 
   return (
-    <SafeAreaView className="flex-1 justify-center items-center mx-6">
+    <View className="flex-1 justify-center items-center mx-6">
       <Formik
         initialValues={initialValues}
         onSubmit={handleOnSubmit}
@@ -106,6 +105,6 @@ export const Login = () => {
           );
         }}
       </Formik>
-    </SafeAreaView>
+    </View>
   );
-};
+}
